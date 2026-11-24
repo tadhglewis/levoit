@@ -197,6 +197,13 @@ on a change and once a minute, so three seconds after boot the component sends
 `01 33 40` once if no status has been decoded yet. MCUs on `01 30 40` /
 `01 B0 40` push several times a second and are never sent it.
 
+### Wi-Fi button hold — CMD `01 02 D1`
+
+Sent by the MCU when the Wi-Fi button is held: payload `0x02` once the hold
+registers, a few seconds in, and `0x03` on release. The stock ESP32 firmware
+logs "netcfg is start" on it. Seen on a Core 300S. The component publishes it as
+the `wifi_button_held` binary sensor.
+
 ### Core 400S — CMD `01 30 40` / `01 B0 40`
 
 Same as Core 300S except:
