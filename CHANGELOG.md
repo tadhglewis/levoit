@@ -29,6 +29,11 @@ Project-level changes. Component releases have their own log:
   not yet run on it
   ([`status_32_40.txt`](./devices/levoit-core300s/uart/status_32_40.txt),
   [#140](https://github.com/tuct/levoit/pull/140))
+* **Core 300S: filter reset from the panel.** Holding Sleep for 3 seconds
+  resets the filter on the unit and sends `01 E4 A5`, the same message the
+  Core 200S sends from its filter button. The component only handled it on the
+  200S, so on a 300S the filter light went off but filter life kept counting
+  down. It now resets the 300S count too
 * **Room size: one number to set** (Core 300S / 400S / 600S, Vital 100S /
   200S). Changing *Auto Mode Room Size Preset* while Room Size is the active
   auto mode now sends it to the purifier at once; before, it only took effect
